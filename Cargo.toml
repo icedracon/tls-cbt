@@ -1,0 +1,18 @@
+[package]
+name = "tls-cbt"
+# Local dev. Publish as 0.1.0-beta.1 per adhammer/docs/PLAN_1.5.1.md B-3
+# (conditional on the LDAPS-CB investigation). The RFC 5929 primitive is
+# standalone and correct regardless of that gate.
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+license = "MIT"
+authors = ["zevs"]
+description = "RFC 5929 tls-server-end-point channel-binding token: hash a server certificate with the hash from its own signature algorithm. Minimal, no X.509 parser."
+keywords = ["tls", "channel-binding", "rfc5929", "epa", "ldaps"]
+categories = ["cryptography", "network-programming"]
+readme = "README.md"
+
+[dependencies]
+# sha2 is already in the ecosystem's dep graph — no NEW third-party crate.
+sha2 = "0.10"
