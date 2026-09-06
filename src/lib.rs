@@ -20,14 +20,18 @@
 //! // `cb` is the 32/48/64-byte hash; prefix with "tls-server-end-point:" for
 //! // the SASL/GSS application-data field.
 //! ```
+#![deny(missing_docs)]
 
 use sha2::{Digest, Sha256, Sha384, Sha512};
 
 /// The hash chosen for the channel binding.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CbHash {
+    /// SHA-256 — the RFC 5929 fallback and the modern default.
     Sha256,
+    /// SHA-384 — chosen when the cert's signature algorithm is a 384-bit family.
     Sha384,
+    /// SHA-512 — chosen when the cert's signature algorithm is a 512-bit family.
     Sha512,
 }
 

@@ -1,6 +1,11 @@
 //! Deterministic no-panic fuzz for the certificate DER walk.
 use tls_cbt::{extract_sig_alg_oid, tls_server_end_point};
-fn xs(s: &mut u64) -> u64 { *s ^= *s << 13; *s ^= *s >> 7; *s ^= *s << 17; *s }
+fn xs(s: &mut u64) -> u64 {
+    *s ^= *s << 13;
+    *s ^= *s >> 7;
+    *s ^= *s << 17;
+    *s
+}
 #[test]
 fn never_panics_on_hostile_input() {
     let mut s: u64 = 0xDEAD_BEEF_CAFE_1234;
