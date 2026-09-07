@@ -3,6 +3,16 @@
 All notable changes to `tls-cbt` are documented here. Follows
 [Keep a Changelog](https://keepachangelog.com); uses SemVer.
 
+## [0.1.0] — 2026-09-06
+
+First stable release of the RFC 5929 tls-server-end-point primitive.
+
+### Validated
+- 100k random inputs — the DER walk never panics.
+- Windows reference: extracted `sha256WithRSA` from a real Windows Server 2025
+  DC's LDAPS certificate and produced a `tls-server-end-point` hash that
+  byte-matches Windows' own SHA-256 of the DER.
+
 ## [0.1.0-beta.1] â€” unreleased
 
 Initial release. Unstable API (0.x + beta) â€” expect small breaks before 0.1.0.
